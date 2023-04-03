@@ -40,3 +40,8 @@ for (let member of TEAM){
     console.log("KEY più VALORE --->",key,":", member[key])
   }
 }
+
+
+function generateCard(){
+  
+}
