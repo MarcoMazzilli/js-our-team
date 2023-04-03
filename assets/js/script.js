@@ -39,19 +39,36 @@ const TEAM = [
 
 // ======= Actions =========
 
-for (let member of TEAM){
-  const card = generateCard()
-  generateContent(card)
+for (let object in TEAM){
+
+  const member = TEAM[object]
+
+  const card        =  generateCard()
+  const photo       =  generatePhoto(card)
+  const description =  generateDescription(card)
+
+  //inserisco dinamicamente le immagini
+  photo.innerHTML = ` <img src="assets/img/${member.image}" alt="">`
+  
+  //Inserisco dinamicamente il nome 
+  description.innerHTML += `<h3>${member.name}</h3>`;
+
+  //inserisco dinamicamente il ruolo 
+  description.innerHTML += `<p>${member.role}</p>`
+
+
+
   
 
   console.log('-------------------------');
   console.log('LOG di tutto l\'oggetto --->', member)
-
-
+  
+  
   for (let key in member){
     console.log("KEY più VALORE --->",key,":", member[key])
+    
   }
-  
+
 }
 
 
@@ -71,22 +88,22 @@ function generateCard(){
   return card
 }
 
-function generateContent(card){
+function generatePhoto(card){
 
   const photo = document.createElement("div")
   photo.classList.add("photo")
   card.appendChild(photo);
+  
+  return photo
+}
+
+
+function generateDescription(card){
 
   const description = document.createElement("div")
   description.classList.add("description")
   card.appendChild(description)
+
+  return description
+
 }
-
-
-
-// const photo = document.crateElemeent("div")
-// photo.classList.add("photo")
-// card.appendChild(photo)
-
-// const description = document.crateElemeent("div")
-// description.classList.add("description")
